@@ -3,11 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!--💡UPDATE: Change the title to your name-->
-    <title>Mohamed Ali Jama | Data Analysis Portfolio</title>
-      
-    <!--💡UPDATE: Add your favicon here. You can generate one at realfavicongenerator.net-->
+
+    <!-- Primary Meta Tags -->
+    <title>Mohamed Ali Jama | Data Analyst Portfolio - SQL, Python, Power BI</title>
+    <meta name="title" content="Mohamed Ali Jama | Data Analyst Portfolio - SQL, Python, Power BI">
+    <meta name="description" content="Portfolio de Mohamed Ali Jama, Data Analyst spécialisé en SQL, Python et Power BI. Projets d'analyse de données en santé publique, éducation et business analytics. Diplômé HEG Genève et certifié Google Data Analytics.">
+    <meta name="keywords" content="Data Analyst, SQL, PostgreSQL, Python, Power BI, Tableau, Data Analytics, Business Intelligence, Genève, Switzerland, HEG, Google Data Analytics, Portfolio">
+    <meta name="author" content="Mohamed Ali Jama">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English, French">
+
+    <!-- Open Graph / Facebook Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://malijama.github.io/">
+    <meta property="og:title" content="Mohamed Ali Jama | Data Analyst Portfolio">
+    <meta property="og:description" content="Portfolio de projets data analytics : COVID-19 avec PostgreSQL, audit cabinet dentaire avec Streamlit, systèmes éducatifs avec Python. Expertise en SQL, Python, Power BI.">
+    <meta property="og:image" content="https://malijama.github.io/assets/images/og-preview.jpg">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="fr_FR">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://malijama.github.io/">
+    <meta name="twitter:title" content="Mohamed Ali Jama | Data Analyst Portfolio">
+    <meta name="twitter:description" content="Portfolio de projets data analytics : SQL, Python, Power BI. Diplômé HEG Genève et certifié Google Data Analytics.">
+    <meta name="twitter:image" content="https://malijama.github.io/assets/images/og-preview.jpg">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://malijama.github.io/">
+
+    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
     <link rel="apple-touch-icon" href="assets/images/favicon.svg">
     
@@ -24,8 +49,11 @@
 </head>
 <body>
 
+<!-- Skip to main content link for accessibility -->
+<a href="#main-content" class="skip-to-content">Skip to main content</a>
+
 <!-- HEADER SECTION -->
-<header class="hero-header">
+<header class="hero-header" role="banner" aria-label="Site header">
     <div class="header-background"></div>
     <div class="header-overlay"></div>
     <div class="container hero-content">
@@ -49,31 +77,34 @@
 </header>
 
 <!-- NAVIGATION -->
-<nav>
+<nav role="navigation" aria-label="Main navigation">
     <div class="container">
-        <ul>
-            <li><a href="#about" data-en="About" data-fr="À Propos">About</a></li>
-            <li><a href="#projects" data-en="Projects" data-fr="Projets">Projects</a></li>
-            <li><a href="#skills" data-en="Skills" data-fr="Compétences">Skills</a></li>
-            <li><a href="#contact" data-en="Contact" data-fr="Contact">Contact</a></li>
+        <ul role="menubar">
+            <li role="none"><a href="#about" role="menuitem" data-en="About" data-fr="À Propos">About</a></li>
+            <li role="none"><a href="#projects" role="menuitem" data-en="Projects" data-fr="Projets">Projects</a></li>
+            <li role="none"><a href="#skills" role="menuitem" data-en="Skills" data-fr="Compétences">Skills</a></li>
+            <li role="none"><a href="#contact" role="menuitem" data-en="Contact" data-fr="Contact">Contact</a></li>
         </ul>
-        <div class="language-switcher">
-            <button class="lang-btn active" data-lang="en">
-                <span class="flag-icon">🇬🇧</span>
+        <div class="language-switcher" role="group" aria-label="Language selector">
+            <button class="lang-btn active" data-lang="en" aria-label="Switch to English" aria-pressed="true">
+                <span class="flag-icon" aria-hidden="true">🇬🇧</span>
                 <span class="lang-text">EN</span>
             </button>
-            <button class="lang-btn" data-lang="fr">
-                <span class="flag-icon">🇫🇷</span>
+            <button class="lang-btn" data-lang="fr" aria-label="Changer en français" aria-pressed="false">
+                <span class="flag-icon" aria-hidden="true">🇫🇷</span>
                 <span class="lang-text">FR</span>
             </button>
         </div>
     </div>
 </nav>
 
+<!-- MAIN CONTENT -->
+<main id="main-content">
+
 <!-- ABOUT SECTION -->
-<section id="about" class="section">
+<section id="about" class="section" aria-labelledby="about-heading">
     <div class="container">
-        <h2 data-i18n="aboutTitle">About Me</h2>
+        <h2 id="about-heading" data-i18n="aboutTitle">About Me</h2>
         <div class="about-content">
             <!--💡UPDATE: Change the image to your own profile photo in assets/images/-->
             <img src="assets/images/profile.jpg" alt="Mohamed Ali Jama" class="profile-photo">
@@ -120,9 +151,9 @@
 </section>
 
 <!-- PROJECTS SECTION -->
-<section id="projects" class="section">
+<section id="projects" class="section" aria-labelledby="projects-heading">
     <div class="container">
-        <h2 data-i18n="projectsTitle">My Projects</h2>
+        <h2 id="projects-heading" data-i18n="projectsTitle">My Projects</h2>
 
         <!-- Portfolio Stats Banner -->
         <div class="portfolio-stats">
@@ -297,9 +328,9 @@
 </section>
 
 <!-- SKILLS SECTION -->
-<section id="skills" class="section">
+<section id="skills" class="section" aria-labelledby="skills-heading">
     <div class="container">
-        <h2 data-i18n="skillsTitle">Technical Skillset</h2>
+        <h2 id="skills-heading" data-i18n="skillsTitle">Technical Skillset</h2>
         <div class="skills-table">
 
             <!--💡UPDATE: Customize your skills in each category-->
@@ -350,34 +381,34 @@
 </section>
 
 <!-- CONTACT FORM SECTION -->
-<section id="contact" class="section">
+<section id="contact" class="section" aria-labelledby="contact-heading">
     <div class="container">
-        <h2 data-i18n="contactTitle">Send me a message</h2>
+        <h2 id="contact-heading" data-i18n="contactTitle">Send me a message</h2>
 
         <!--💡UPDATE: Go to formsubmit.co and replace the email with your own-->
-        <form action="https://formsubmit.co/your.email@example.com" method="POST" class="contact-form">
+        <form action="https://formsubmit.co/your.email@example.com" method="POST" class="contact-form" aria-label="Contact form">
             <p data-i18n="contactIntro">Interested in collaborating or have questions about my work? I'd love to hear from you!</p>
 
             <!-- Form Fields -->
             <div class="form-group">
                 <label for="name" data-i18n="contactName">Name</label>
-                <input type="text" name="name" id="name" data-i18n-placeholder="contactNamePlaceholder" placeholder="Your name" required>
+                <input type="text" name="name" id="name" data-i18n-placeholder="contactNamePlaceholder" placeholder="Your name" required aria-required="true">
             </div>
             <div class="form-group">
                 <label for="email" data-i18n="contactEmail">Email</label>
-                <input type="email" name="email" id="email" data-i18n-placeholder="contactEmailPlaceholder" placeholder="Your email" required>
+                <input type="email" name="email" id="email" data-i18n-placeholder="contactEmailPlaceholder" placeholder="Your email" required aria-required="true">
             </div>
             <div class="form-group">
                 <label for="subject" data-i18n="contactSubject">Subject</label>
-                <input type="text" name="subject" id="subject" data-i18n-placeholder="contactSubjectPlaceholder" placeholder="Subject" required>
+                <input type="text" name="subject" id="subject" data-i18n-placeholder="contactSubjectPlaceholder" placeholder="Subject" required aria-required="true">
             </div>
             <div class="form-group">
                 <label for="message" data-i18n="contactMessage">Message</label>
-                <textarea name="message" id="message" rows="6" data-i18n-placeholder="contactMessagePlaceholder" placeholder="Your message" required></textarea>
+                <textarea name="message" id="message" rows="6" data-i18n-placeholder="contactMessagePlaceholder" placeholder="Your message" required aria-required="true"></textarea>
             </div>
 
             <!-- Submit Button -->
-            <button type="submit" class="btn" data-i18n="contactBtn">Send Message</button>
+            <button type="submit" class="btn" data-i18n="contactBtn" aria-label="Send contact form message">Send Message</button>
 
         </form>
     </div>

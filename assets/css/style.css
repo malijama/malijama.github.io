@@ -69,6 +69,27 @@ img {
     height: auto;
 }
 
+/* --- Accessibility - Skip to Content Link --- */
+.skip-to-content {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--accent-color);
+    color: var(--primary-color);
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 0 0 4px 0;
+    z-index: 10000;
+    font-weight: 600;
+    transition: top 0.3s ease;
+}
+
+.skip-to-content:focus {
+    top: 0;
+    outline: 3px solid var(--accent-secondary);
+    outline-offset: 2px;
+}
+
 /* --- 3. Hero Header (Parallax) --- */
 .hero-header {
     position: relative;

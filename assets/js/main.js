@@ -204,12 +204,14 @@ function setLanguage(lang) {
         }
     });
 
-    // Set active button
+    // Set active button and update ARIA states
     document.querySelectorAll('.lang-btn').forEach(btn => {
         if (btn.getAttribute('data-lang') === lang) {
             btn.classList.add('active');
+            btn.setAttribute('aria-pressed', 'true');
         } else {
             btn.classList.remove('active');
+            btn.setAttribute('aria-pressed', 'false');
         }
     });
 
