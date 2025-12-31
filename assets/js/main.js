@@ -179,6 +179,15 @@ function setLanguage(lang) {
         }
     });
 
+    // Update footer navigation links
+    document.querySelectorAll('.footer-links ul li a span[data-en]').forEach(span => {
+        const key = lang === 'en' ? 'data-en' : 'data-fr';
+        const text = span.getAttribute(key);
+        if (text) {
+            span.textContent = text;
+        }
+    });
+
     // Update page title
     document.querySelectorAll('[data-i18n-title]').forEach(element => {
         const key = element.getAttribute('data-i18n-title');

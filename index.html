@@ -73,17 +73,17 @@
 <!-- ABOUT SECTION -->
 <section id="about" class="section">
     <div class="container">
-        <h2>About Me</h2>
+        <h2 data-i18n="aboutTitle">About Me</h2>
         <div class="about-content">
             <!--💡UPDATE: Change the image to your own profile photo in assets/images/-->
             <img src="assets/images/profile.jpg" alt="Mohamed Ali Jama" class="profile-photo">
             <div class="about-text">
                 <!--💡UPDATE: Write your own 'About Me' text here-->
-                <p>Data Analyst passionné par la transformation des données en insights actionnables. Titulaire d'un Bachelor en Économie d'Entreprise (HEG) et certifié Google Data Analytics, je combine une solide formation business avec des compétences techniques avancées en SQL, Python et Business Intelligence.</p>
-                <blockquote class="pull-quote">
+                <p data-i18n="aboutPara1">Data Analyst passionné par la transformation des données en insights actionnables. Titulaire d'un Bachelor en Économie d'Entreprise (HEG) et certifié Google Data Analytics, je combine une solide formation business avec des compétences techniques avancées en SQL, Python et Business Intelligence.</p>
+                <blockquote class="pull-quote" data-i18n="aboutQuote">
                     Les données racontent une histoire, mon rôle est de la rendre claire et exploitable pour tous.
                 </blockquote>
-                <p>Fort de mon expérience dans le secteur public et de mes projets personnels, je maîtrise l'ensemble du cycle d'analyse de données : de la collecte et nettoyage jusqu'à la visualisation et la communication de résultats complexes. Ce portfolio présente mes projets data analytics couvrant différents domaines (santé publique, éducation, gestion de bibliothèque).</p>
+                <p data-i18n="aboutPara2">Fort de mon expérience dans le secteur public et de mes projets personnels, je maîtrise l'ensemble du cycle d'analyse de données : de la collecte et nettoyage jusqu'à la visualisation et la communication de résultats complexes. Ce portfolio présente mes projets data analytics couvrant différents domaines (santé publique, éducation, gestion de bibliothèque).</p>
             </div>
         </div>
 
@@ -122,7 +122,7 @@
 <!-- PROJECTS SECTION -->
 <section id="projects" class="section">
     <div class="container">
-        <h2>My Projects</h2>
+        <h2 data-i18n="projectsTitle">My Projects</h2>
 
         <!-- Portfolio Stats Banner -->
         <div class="portfolio-stats">
@@ -299,15 +299,15 @@
 <!-- SKILLS SECTION -->
 <section id="skills" class="section">
     <div class="container">
-        <h2>Technical Skillset</h2>
+        <h2 data-i18n="skillsTitle">Technical Skillset</h2>
         <div class="skills-table">
-            
+
             <!--💡UPDATE: Customize your skills in each category-->
             <!-- Column 1: Langages & Bases de données -->
             <div class="skill-column">
                 <div class="skill-header">
                     <i class="fas fa-database"></i>
-                    <h3>Langages & Bases de données</h3>
+                    <h3 data-i18n="skillsLangDb">Langages & Bases de données</h3>
                 </div>
                 <ul class="skill-list">
                     <li>SQL/PostgreSQL</li>
@@ -321,7 +321,7 @@
             <div class="skill-column">
                 <div class="skill-header">
                     <i class="fas fa-chart-pie"></i>
-                    <h3>Visualisation & BI</h3>
+                    <h3 data-i18n="skillsVizBi">Visualisation & BI</h3>
                 </div>
                 <ul class="skill-list">
                     <li>Power BI (Dashboards, DAX)</li>
@@ -335,7 +335,7 @@
             <div class="skill-column">
                 <div class="skill-header">
                     <i class="fas fa-cogs"></i>
-                    <h3>Outils & Méthodologies</h3>
+                    <h3 data-i18n="skillsTools">Outils & Méthodologies</h3>
                 </div>
                 <ul class="skill-list">
                     <li>Git/GitHub</li>
@@ -352,32 +352,32 @@
 <!-- CONTACT FORM SECTION -->
 <section id="contact" class="section">
     <div class="container">
-        <h2>Send me a message</h2>
-        
+        <h2 data-i18n="contactTitle">Send me a message</h2>
+
         <!--💡UPDATE: Go to formsubmit.co and replace the email with your own-->
         <form action="https://formsubmit.co/your.email@example.com" method="POST" class="contact-form">
-            <p> Interested in collaborating or have questions about my work? I'd love to hear from you!</p>
+            <p data-i18n="contactIntro">Interested in collaborating or have questions about my work? I'd love to hear from you!</p>
 
             <!-- Form Fields -->
             <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" name="name" id="name" placeholder="Your name" required>
+                <label for="name" data-i18n="contactName">Name</label>
+                <input type="text" name="name" id="name" data-i18n-placeholder="contactNamePlaceholder" placeholder="Your name" required>
             </div>
             <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" name="email" id="email" placeholder="Your email" required>
+                <label for="email" data-i18n="contactEmail">Email</label>
+                <input type="email" name="email" id="email" data-i18n-placeholder="contactEmailPlaceholder" placeholder="Your email" required>
             </div>
             <div class="form-group">
-                <label for="subject">Subject</label>
-                <input type="text" name="subject" id="subject" placeholder="Subject" required>
+                <label for="subject" data-i18n="contactSubject">Subject</label>
+                <input type="text" name="subject" id="subject" data-i18n-placeholder="contactSubjectPlaceholder" placeholder="Subject" required>
             </div>
             <div class="form-group">
-                <label for="message">Message</label>
-                <textarea name="message" id="message" rows="6" placeholder="Your message" required></textarea>
+                <label for="message" data-i18n="contactMessage">Message</label>
+                <textarea name="message" id="message" rows="6" data-i18n-placeholder="contactMessagePlaceholder" placeholder="Your message" required></textarea>
             </div>
-            
+
             <!-- Submit Button -->
-            <button type="submit" class="btn">Send Message</button>
+            <button type="submit" class="btn" data-i18n="contactBtn">Send Message</button>
 
         </form>
     </div>
@@ -390,27 +390,27 @@
             <!-- Footer Left: Branding & Availability -->
             <div class="footer-column footer-brand">
                 <h3>Mohamed Ali Jama</h3>
-                <p class="footer-tagline">Data Analyst | Transforming Data into Decisions</p>
+                <p class="footer-tagline" data-i18n="footerTagline">Data Analyst | Transforming Data into Decisions</p>
                 <div class="availability-badge">
                     <i class="fas fa-circle pulse"></i>
-                    <span>Available for Freelance & Opportunities</span>
+                    <span data-i18n="footerAvailable">Available for Freelance & Opportunities</span>
                 </div>
             </div>
 
             <!-- Footer Center: Quick Links -->
             <div class="footer-column footer-links">
-                <h4>Navigation</h4>
+                <h4 data-i18n="footerNavigation">Navigation</h4>
                 <ul>
-                    <li><a href="#about"><i class="fas fa-user"></i> About</a></li>
-                    <li><a href="#projects"><i class="fas fa-briefcase"></i> Projects</a></li>
-                    <li><a href="#skills"><i class="fas fa-tools"></i> Skills</a></li>
-                    <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+                    <li><a href="#about"><i class="fas fa-user"></i> <span data-en="About" data-fr="À Propos">About</span></a></li>
+                    <li><a href="#projects"><i class="fas fa-briefcase"></i> <span data-en="Projects" data-fr="Projets">Projects</span></a></li>
+                    <li><a href="#skills"><i class="fas fa-tools"></i> <span data-en="Skills" data-fr="Compétences">Skills</span></a></li>
+                    <li><a href="#contact"><i class="fas fa-envelope"></i> <span data-en="Contact" data-fr="Contact">Contact</span></a></li>
                 </ul>
             </div>
 
             <!-- Footer Right: Quick Contact -->
             <div class="footer-column footer-contact">
-                <h4>Quick Contact</h4>
+                <h4 data-i18n="footerQuickContact">Quick Contact</h4>
                 <ul class="contact-list">
                     <li>
                         <a href="https://www.linkedin.com/in/0a651460/" target="_blank">
@@ -430,8 +430,8 @@
 
         <!-- Footer Bottom -->
         <div class="footer-bottom">
-            <p>&copy; 2026 Mohamed Ali Jama. All rights reserved.</p>
-            <p class="footer-credit">Crafted with <i class="fas fa-heart"></i> & Data</p>
+            <p>&copy; 2026 Mohamed Ali Jama. <span data-i18n="footerRights">All rights reserved.</span></p>
+            <p class="footer-credit"><span data-i18n="footerCredit">Crafted with</span> <i class="fas fa-heart"></i> <span data-i18n="footerCreditEnd">& Data</span></p>
         </div>
     </div>
 </footer>
