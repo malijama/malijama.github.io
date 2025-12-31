@@ -40,13 +40,88 @@ document.addEventListener('DOMContentLoaded', function() {
         // Add any project-specific JavaScript here
         console.log('Project page loaded');
     }
+
+    // Initialize parallax effect
+    initParallaxEffect();
+
+    // Initialize project card animations
+    initProjectCardAnimations();
+
+    // Initialize image lazy loading with fade-in
+    initLazyLoadImages();
 });
+
+// === PARALLAX EFFECT FOR HEADER ===
+function initParallaxEffect() {
+    const headerBackground = document.querySelector('.header-background');
+    if (!headerBackground) return;
+
+    let ticking = false;
+
+    window.addEventListener('scroll', function() {
+        if (!ticking) {
+            window.requestAnimationFrame(function() {
+                const scrolled = window.pageYOffset;
+                const parallaxSpeed = 0.5; // Adjust for more/less movement
+                headerBackground.style.transform = `translateY(${scrolled * parallaxSpeed}px)`;
+                ticking = false;
+            });
+            ticking = true;
+        }
+    });
+}
+
+// === PROJECT CARD MICRO-INTERACTIONS ===
+function initProjectCardAnimations() {
+    const projectCards = document.querySelectorAll('.project-card');
+
+    projectCards.forEach(card => {
+        // Create shine effect element
+        const shineOverlay = document.createElement('div');
+        shineOverlay.classList.add('shine-overlay');
+        card.appendChild(shineOverlay);
+
+        // Shine effect on hover
+        card.addEventListener('mouseenter', function() {
+            shineOverlay.style.animation = 'shine 0.8s ease-in-out';
+        });
+
+        card.addEventListener('mouseleave', function() {
+            shineOverlay.style.animation = 'none';
+        });
+
+        // Reset animation
+        card.addEventListener('animationend', function() {
+            shineOverlay.style.animation = 'none';
+        });
+    });
+}
+
+// === LAZY LOAD IMAGES WITH PROGRESSIVE FADE ===
+function initLazyLoadImages() {
+    const images = document.querySelectorAll('.project-card img');
+
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                img.classList.add('fade-in-image');
+                observer.unobserve(img);
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '50px'
+    });
+
+    images.forEach(img => {
+        img.style.opacity = '0';
+        imageObserver.observe(img);
+    });
+}
 
 // Function to handle Power BI dashboard embedding
 function embedPowerBIDashboard() {
     // This would be replaced with actual Power BI embedding code
     console.log('Power BI dashboard embedded');
 }
-
-// Initialize any additional components
-document.addEventListener('DOMContentLoaded', embedPowerBIDashboard);
