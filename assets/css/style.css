@@ -69,170 +69,7 @@ img {
     height: auto;
 }
 
-/* --- 3. LinkedIn-Style Header --- */
-.linkedin-header {
-    background: var(--white-color);
-    margin-bottom: 40px;
-}
-
-.header-banner {
-    position: relative;
-    width: 100%;
-    height: 320px;
-    overflow: hidden;
-    background: linear-gradient(135deg, #1e3a5f 0%, #2d5a8f 100%);
-}
-
-.banner-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-}
-
-.banner-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg,
-        rgba(10, 25, 41, 0.3) 0%,
-        rgba(30, 58, 95, 0.2) 100%);
-}
-
-.profile-section {
-    position: relative;
-    margin-top: -80px;
-    padding-bottom: 40px;
-}
-
-.profile-container {
-    display: flex;
-    gap: 30px;
-    align-items: flex-end;
-}
-
-.profile-photo-wrapper {
-    flex-shrink: 0;
-    position: relative;
-    z-index: 10;
-}
-
-.profile-photo-circle {
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
-    border: 6px solid var(--white-color);
-    object-fit: cover;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    background: var(--white-color);
-}
-
-.profile-info {
-    flex: 1;
-    padding-top: 20px;
-}
-
-.profile-name {
-    font-family: var(--font-heading);
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: var(--primary-color);
-    margin-bottom: 8px;
-    line-height: 1.2;
-}
-
-.profile-title {
-    font-size: 1.25rem;
-    color: var(--dark-text-color);
-    margin-bottom: 8px;
-    font-weight: 400;
-}
-
-.profile-location {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 0.95rem;
-    color: var(--light-text-color);
-    margin-bottom: 20px;
-}
-
-.profile-location i {
-    color: var(--accent-secondary);
-}
-
-.profile-actions {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    flex-wrap: wrap;
-}
-
-.btn-primary {
-    display: inline-block;
-    padding: 12px 28px;
-    background: var(--accent-secondary);
-    color: var(--white-color);
-    border-radius: 50px;
-    font-weight: 600;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.25);
-}
-
-.btn-primary:hover {
-    background: #5558d9;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(99, 102, 241, 0.35);
-}
-
-.btn-secondary {
-    display: inline-block;
-    padding: 12px 28px;
-    background: transparent;
-    color: var(--accent-secondary);
-    border: 2px solid var(--accent-secondary);
-    border-radius: 50px;
-    font-weight: 600;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-}
-
-.btn-secondary:hover {
-    background: rgba(99, 102, 241, 0.1);
-    transform: translateY(-2px);
-}
-
-.social-links-inline {
-    display: flex;
-    gap: 12px;
-}
-
-.social-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    background: var(--white-color);
-    border: 2px solid var(--border-color);
-    color: var(--light-text-color);
-    font-size: 1.2rem;
-    transition: all 0.3s ease;
-}
-
-.social-btn:hover {
-    background: var(--accent-secondary);
-    color: var(--white-color);
-    border-color: var(--accent-secondary);
-    transform: translateY(-3px);
-    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
-}
-
-/* Old Hero Header - Keep for backward compatibility if needed */
+/* --- 3. Hero Header (Parallax) --- */
 .hero-header {
     position: relative;
     min-height: 100vh;
@@ -266,19 +103,14 @@ img {
     z-index: 2;
 }
 
-.header-content {
+.hero-content {
     position: relative;
     z-index: 3;
     text-align: center;
     padding: 60px 20px;
 }
 
-.header-text-wrapper {
-    max-width: 900px;
-    margin: 0 auto 50px;
-}
-
-.header-greeting {
+.greeting {
     font-size: 1.1rem;
     font-weight: 400;
     letter-spacing: 3px;
@@ -289,7 +121,7 @@ img {
     animation: fadeInUp 0.8s ease-out 0.2s forwards;
 }
 
-.header-name {
+.hero-name {
     font-family: var(--font-heading);
     font-size: 5rem;
     font-weight: 700;
@@ -304,7 +136,7 @@ img {
     animation: fadeInUp 0.8s ease-out 0.4s forwards;
 }
 
-.header-title {
+.hero-title {
     font-size: 1.8rem;
     font-weight: 300;
     color: rgba(255, 255, 255, 0.95);
@@ -314,18 +146,34 @@ img {
     animation: fadeInUp 0.8s ease-out 0.6s forwards;
 }
 
-.header-tagline {
+.hero-tagline {
     font-size: 1.15rem;
     font-weight: 300;
     color: rgba(255, 255, 255, 0.8);
     max-width: 700px;
-    margin: 0 auto 45px;
+    margin: 0 auto 30px;
     line-height: 1.8;
     opacity: 0;
     animation: fadeInUp 0.8s ease-out 0.8s forwards;
 }
 
-.header-cta {
+.hero-location {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 40px;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out 0.9s forwards;
+}
+
+.hero-location i {
+    color: var(--accent-color);
+}
+
+.cta-buttons {
     display: flex;
     gap: 20px;
     justify-content: center;
@@ -335,36 +183,39 @@ img {
     animation: fadeInUp 0.8s ease-out 1s forwards;
 }
 
-.cta-button {
+.btn-primary {
     display: inline-block;
     padding: 16px 40px;
     font-size: 1rem;
     font-weight: 600;
     border-radius: 50px;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-}
-
-.cta-primary {
     background: linear-gradient(135deg, var(--accent-color), var(--accent-secondary));
     color: var(--white-color);
     box-shadow: 0 10px 30px rgba(0, 217, 255, 0.3);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    letter-spacing: 0.5px;
 }
 
-.cta-primary:hover {
+.btn-primary:hover {
     transform: translateY(-3px);
     box-shadow: 0 15px 40px rgba(0, 217, 255, 0.5);
 }
 
-.cta-secondary {
+.btn-secondary {
+    display: inline-block;
+    padding: 16px 40px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 50px;
     background: transparent;
     color: var(--white-color);
     border: 2px solid rgba(255, 255, 255, 0.4);
     backdrop-filter: blur(10px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    letter-spacing: 0.5px;
 }
 
-.cta-secondary:hover {
+.btn-secondary:hover {
     background: rgba(255, 255, 255, 0.1);
     border-color: var(--accent-color);
     transform: translateY(-3px);
@@ -378,7 +229,7 @@ img {
     animation: fadeInUp 0.8s ease-out 1.2s forwards;
 }
 
-.social-icon {
+.social-links a {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -393,7 +244,7 @@ img {
     backdrop-filter: blur(10px);
 }
 
-.social-icon:hover {
+.social-links a:hover {
     background: var(--accent-color);
     color: var(--primary-color);
     transform: translateY(-5px) scale(1.1);

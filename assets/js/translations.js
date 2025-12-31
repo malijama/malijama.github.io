@@ -17,6 +17,10 @@ const translations = {
         aboutQuote: "Data tells a story, my role is to make it understandable and actionable for everyone.",
         aboutPara2: "Through my experience in the public sector and personal projects, I master the entire data analysis cycle: from collection and cleaning to visualization and communication of complex results. This portfolio showcases my data analytics projects covering different domains (public health, education, library management).",
         certificationsTitle: "Certifications & Education",
+        certHegTitle: "Bachelor in Business Economics",
+        certHegIssuer: "HEG Geneva",
+        certGoogleTitle: "Google Data Analytics",
+        certGoogleIssuer: "Professional Certificate",
 
         // Projects Section
         projectsTitle: "My Projects",
@@ -95,6 +99,10 @@ const translations = {
         aboutQuote: "Les données racontent une histoire, mon rôle est de la rendre claire et exploitable pour tous.",
         aboutPara2: "Fort de mon expérience dans le secteur public et de mes projets personnels, je maîtrise l'ensemble du cycle d'analyse de données : de la collecte et nettoyage jusqu'à la visualisation et la communication de résultats complexes. Ce portfolio présente mes projets data analytics couvrant différents domaines (santé publique, éducation, gestion de bibliothèque).",
         certificationsTitle: "Certifications & Formation",
+        certHegTitle: "Bachelor en Économie d'Entreprise",
+        certHegIssuer: "HEG Genève",
+        certGoogleTitle: "Google Data Analytics",
+        certGoogleIssuer: "Certificat Professionnel",
 
         // Projects Section
         projectsTitle: "Mes Projets",
