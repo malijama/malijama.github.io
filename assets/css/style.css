@@ -69,86 +69,238 @@ img {
     height: auto;
 }
 
-/* --- 3. Header with Gradient --- */
-header {
-    background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
-    color: var(--white-color);
-    padding: 100px 0 80px;
-    text-align: center;
+/* --- 3. Modern Hero Header --- */
+.hero-header {
     position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     overflow: hidden;
+    color: var(--white-color);
 }
 
-header::before {
-    content: '';
+.header-background {
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.03" d="M0,96L48,112C96,128,192,160,288,165.3C384,171,480,149,576,133.3C672,117,768,107,864,122.7C960,139,1056,181,1152,181.3C1248,181,1344,139,1392,117.3L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
-    opacity: 0.1;
+    width: 100%;
+    height: 100%;
+    background: url('../images/header-bg.jpg') center/cover no-repeat;
+    z-index: 1;
 }
 
-header h1 {
-    font-family: var(--font-heading);
-    font-size: 4.5rem;
-    font-weight: 700;
-    margin-bottom: 20px;
-    letter-spacing: -1px;
+.header-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg,
+        rgba(10, 25, 41, 0.92) 0%,
+        rgba(30, 58, 95, 0.85) 50%,
+        rgba(99, 102, 241, 0.75) 100%);
+    z-index: 2;
+}
+
+.header-content {
     position: relative;
-    z-index: 1;
-    background: linear-gradient(135deg, #ffffff 0%, var(--accent-color) 100%);
+    z-index: 3;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.header-text-wrapper {
+    max-width: 900px;
+    margin: 0 auto 50px;
+}
+
+.header-greeting {
+    font-size: 1.1rem;
+    font-weight: 400;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent-color);
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out 0.2s forwards;
+}
+
+.header-name {
+    font-family: var(--font-heading);
+    font-size: 5rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+    letter-spacing: -2px;
+    line-height: 1.1;
+    background: linear-gradient(135deg, #FFFFFF 0%, var(--accent-color) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-}
-
-header p {
-    font-size: 1.4rem;
-    font-weight: 300;
-    opacity: 0.95;
-    margin-bottom: 40px;
-    position: relative;
-    z-index: 1;
-    letter-spacing: 0.5px;
-}
-
-/* --- 3.5 Social Icons with Modern Hover --- */
-.social-links {
-    position: relative;
-    z-index: 1;
-}
-
-.social-links a {
-    color: var(--white-color);
-    font-size: 1.8rem;
-    margin: 0 18px;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    display: inline-block;
-    position: relative;
-}
-
-.social-links a::before {
-    content: '';
-    position: absolute;
-    inset: -12px;
-    background: var(--accent-color);
-    border-radius: 50%;
     opacity: 0;
-    transform: scale(0);
+    animation: fadeInUp 0.8s ease-out 0.4s forwards;
+}
+
+.header-title {
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.95);
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out 0.6s forwards;
+}
+
+.header-tagline {
+    font-size: 1.15rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 700px;
+    margin: 0 auto 45px;
+    line-height: 1.8;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out 0.8s forwards;
+}
+
+.header-cta {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out 1s forwards;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 16px 40px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 50px;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: -1;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
 }
 
-.social-links a:hover::before {
-    opacity: 0.15;
-    transform: scale(1);
+.cta-primary {
+    background: linear-gradient(135deg, var(--accent-color), var(--accent-secondary));
+    color: var(--white-color);
+    box-shadow: 0 10px 30px rgba(0, 217, 255, 0.3);
 }
 
-.social-links a:hover {
-    color: var(--accent-color);
-    transform: translateY(-4px) scale(1.1);
+.cta-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(0, 217, 255, 0.5);
+}
+
+.cta-secondary {
+    background: transparent;
+    color: var(--white-color);
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(10px);
+}
+
+.cta-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--accent-color);
+    transform: translateY(-3px);
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out 1.2s forwards;
+}
+
+.social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 55px;
+    height: 55px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 50%;
+    color: var(--white-color);
+    font-size: 1.4rem;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+}
+
+.social-icon:hover {
+    background: var(--accent-color);
+    color: var(--primary-color);
+    transform: translateY(-5px) scale(1.1);
+    border-color: var(--accent-color);
+    box-shadow: 0 10px 30px rgba(0, 217, 255, 0.5);
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    opacity: 0;
+    animation: fadeInBounce 1.5s ease-out 1.5s forwards;
+}
+
+.scroll-indicator a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    color: var(--white-color);
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    animation: bounce 2s infinite;
+}
+
+.scroll-indicator a:hover {
+    background: var(--accent-color);
+    border-color: var(--accent-color);
+    color: var(--primary-color);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInBounce {
+    from {
+        opacity: 0;
+        transform: translate(-50%, 20px);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
 }
 
 /* --- 4. Modern Sticky Navigation --- */
@@ -783,12 +935,31 @@ footer p {
 }
 
 @media (max-width: 768px) {
-    header h1 {
-        font-size: 3rem;
+    /* Hero Header Responsive */
+    .hero-header {
+        min-height: 90vh;
     }
 
-    header p {
-        font-size: 1.2rem;
+    .header-name {
+        font-size: 3.5rem;
+    }
+
+    .header-title {
+        font-size: 1.4rem;
+    }
+
+    .header-tagline {
+        font-size: 1rem;
+    }
+
+    .header-cta {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cta-button {
+        width: 100%;
+        max-width: 300px;
     }
 
     .section {
@@ -857,8 +1028,48 @@ footer p {
 }
 
 @media (max-width: 480px) {
-    header h1 {
-        font-size: 2.2rem;
+    /* Hero Header Mobile */
+    .hero-header {
+        min-height: 85vh;
+    }
+
+    .header-greeting {
+        font-size: 0.9rem;
+        letter-spacing: 2px;
+    }
+
+    .header-name {
+        font-size: 2.5rem;
+        letter-spacing: -1px;
+    }
+
+    .header-title {
+        font-size: 1.1rem;
+    }
+
+    .header-tagline {
+        font-size: 0.95rem;
+    }
+
+    .cta-button {
+        padding: 14px 30px;
+        font-size: 0.9rem;
+    }
+
+    .social-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+
+    .scroll-indicator {
+        bottom: 30px;
+    }
+
+    .scroll-indicator a {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
     }
 
     .projects-grid {
