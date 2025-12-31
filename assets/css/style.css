@@ -69,7 +69,170 @@ img {
     height: auto;
 }
 
-/* --- 3. Modern Hero Header --- */
+/* --- 3. LinkedIn-Style Header --- */
+.linkedin-header {
+    background: var(--white-color);
+    margin-bottom: 40px;
+}
+
+.header-banner {
+    position: relative;
+    width: 100%;
+    height: 320px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #1e3a5f 0%, #2d5a8f 100%);
+}
+
+.banner-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.banner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg,
+        rgba(10, 25, 41, 0.3) 0%,
+        rgba(30, 58, 95, 0.2) 100%);
+}
+
+.profile-section {
+    position: relative;
+    margin-top: -80px;
+    padding-bottom: 40px;
+}
+
+.profile-container {
+    display: flex;
+    gap: 30px;
+    align-items: flex-end;
+}
+
+.profile-photo-wrapper {
+    flex-shrink: 0;
+    position: relative;
+    z-index: 10;
+}
+
+.profile-photo-circle {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 6px solid var(--white-color);
+    object-fit: cover;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    background: var(--white-color);
+}
+
+.profile-info {
+    flex: 1;
+    padding-top: 20px;
+}
+
+.profile-name {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 8px;
+    line-height: 1.2;
+}
+
+.profile-title {
+    font-size: 1.25rem;
+    color: var(--dark-text-color);
+    margin-bottom: 8px;
+    font-weight: 400;
+}
+
+.profile-location {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.95rem;
+    color: var(--light-text-color);
+    margin-bottom: 20px;
+}
+
+.profile-location i {
+    color: var(--accent-secondary);
+}
+
+.profile-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn-primary {
+    display: inline-block;
+    padding: 12px 28px;
+    background: var(--accent-secondary);
+    color: var(--white-color);
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.25);
+}
+
+.btn-primary:hover {
+    background: #5558d9;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(99, 102, 241, 0.35);
+}
+
+.btn-secondary {
+    display: inline-block;
+    padding: 12px 28px;
+    background: transparent;
+    color: var(--accent-secondary);
+    border: 2px solid var(--accent-secondary);
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background: rgba(99, 102, 241, 0.1);
+    transform: translateY(-2px);
+}
+
+.social-links-inline {
+    display: flex;
+    gap: 12px;
+}
+
+.social-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: var(--white-color);
+    border: 2px solid var(--border-color);
+    color: var(--light-text-color);
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.social-btn:hover {
+    background: var(--accent-secondary);
+    color: var(--white-color);
+    border-color: var(--accent-secondary);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+/* Old Hero Header - Keep for backward compatibility if needed */
 .hero-header {
     position: relative;
     min-height: 100vh;
@@ -1336,6 +1499,49 @@ nav ul li a:hover::after {
 }
 
 @media (max-width: 768px) {
+    /* LinkedIn Header Responsive */
+    .header-banner {
+        height: 200px;
+    }
+
+    .profile-section {
+        margin-top: -60px;
+    }
+
+    .profile-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .profile-photo-circle {
+        width: 140px;
+        height: 140px;
+    }
+
+    .profile-name {
+        font-size: 2rem;
+    }
+
+    .profile-title {
+        font-size: 1.1rem;
+    }
+
+    .profile-location {
+        justify-content: center;
+    }
+
+    .profile-actions {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .btn-primary, .btn-secondary {
+        width: 100%;
+        max-width: 300px;
+        text-align: center;
+    }
+
     /* Hero Header Responsive */
     .hero-header {
         min-height: 90vh;

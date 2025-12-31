@@ -5,6 +5,9 @@ const translations = {
         greeting: "Hello, I'm",
         title: "Data Analyst | Power BI Developer",
         tagline: "Transforming data into actionable insights for strategic decision-making",
+        location: "Geneva, Switzerland",
+        ctaContact: "Contact Me",
+        ctaProjects: "View Projects",
         ctaPrimary: "View Projects",
         ctaSecondary: "Contact Me",
 
@@ -80,6 +83,9 @@ const translations = {
         greeting: "Bonjour, je suis",
         title: "Data Analyst | Développeur Power BI",
         tagline: "Transformant les données en insights actionnables pour des décisions stratégiques éclairées",
+        location: "Genève, Suisse",
+        ctaContact: "Me contacter",
+        ctaProjects: "Voir mes projets",
         ctaPrimary: "Voir mes projets",
         ctaSecondary: "Me contacter",
 
