@@ -49,6 +49,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Initialize image lazy loading with fade-in
     initLazyLoadImages();
+
+    // Initialize language switcher
+    initLanguageSwitcher();
 });
 
 // === PARALLAX EFFECT FOR HEADER ===
@@ -118,6 +121,91 @@ function initLazyLoadImages() {
         img.style.opacity = '0';
         imageObserver.observe(img);
     });
+}
+
+// === LANGUAGE SWITCHER ===
+function initLanguageSwitcher() {
+    // Check if translations are loaded
+    if (typeof translations === 'undefined') {
+        console.warn('Translations not loaded');
+        return;
+    }
+
+    // Get saved language or default to 'en'
+    let currentLang = localStorage.getItem('preferredLanguage') || 'en';
+
+    // Set initial language
+    setLanguage(currentLang);
+
+    // Language buttons click handlers
+    const langButtons = document.querySelectorAll('.lang-btn');
+    langButtons.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const lang = this.getAttribute('data-lang');
+            setLanguage(lang);
+
+            // Save preference
+            localStorage.setItem('preferredLanguage', lang);
+
+            // Update active state
+            langButtons.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+        });
+    });
+}
+
+function setLanguage(lang) {
+    if (!translations[lang]) {
+        console.warn(`Language ${lang} not found`);
+        return;
+    }
+
+    const t = translations[lang];
+
+    // Update all elements with data-i18n attribute
+    document.querySelectorAll('[data-i18n]').forEach(element => {
+        const key = element.getAttribute('data-i18n');
+        if (t[key]) {
+            element.textContent = t[key];
+        }
+    });
+
+    // Update navigation links
+    document.querySelectorAll('nav ul li a').forEach(link => {
+        const key = lang === 'en' ? 'data-en' : 'data-fr';
+        const text = link.getAttribute(key);
+        if (text) {
+            link.textContent = text;
+        }
+    });
+
+    // Update page title
+    document.querySelectorAll('[data-i18n-title]').forEach(element => {
+        const key = element.getAttribute('data-i18n-title');
+        if (t[key]) {
+            element.textContent = t[key];
+        }
+    });
+
+    // Update placeholders
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
+        const key = element.getAttribute('data-i18n-placeholder');
+        if (t[key]) {
+            element.setAttribute('placeholder', t[key]);
+        }
+    });
+
+    // Set active button
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        if (btn.getAttribute('data-lang') === lang) {
+            btn.classList.add('active');
+        } else {
+            btn.classList.remove('active');
+        }
+    });
+
+    // Update HTML lang attribute
+    document.documentElement.setAttribute('lang', lang);
 }
 
 // Function to handle Power BI dashboard embedding

@@ -314,11 +314,19 @@ nav {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
+nav .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 nav ul {
     display: flex;
     justify-content: center;
     list-style: none;
     padding: 8px 0;
+    margin: 0;
+    flex: 1;
 }
 
 nav ul li a {
@@ -361,6 +369,53 @@ nav ul li a:hover::before {
 
 nav ul li a:hover::after {
     width: 60%;
+}
+
+/* Language Switcher */
+.language-switcher {
+    display: flex;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 6px;
+    border-radius: 50px;
+    border: 1px solid rgba(0, 217, 255, 0.2);
+}
+
+.lang-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    background: transparent;
+    border: none;
+    border-radius: 50px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: var(--font-body);
+}
+
+.lang-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--white-color);
+}
+
+.lang-btn.active {
+    background: linear-gradient(135deg, var(--accent-color), var(--accent-secondary));
+    color: var(--white-color);
+    box-shadow: 0 4px 12px rgba(0, 217, 255, 0.3);
+}
+
+.flag-icon {
+    font-size: 1.2rem;
+    line-height: 1;
+}
+
+.lang-text {
+    font-weight: 600;
+    letter-spacing: 0.5px;
 }
 
 /* --- 5. Sections with Better Spacing --- */
