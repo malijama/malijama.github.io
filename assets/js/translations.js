@@ -85,7 +85,7 @@ const translations = {
         // About Section
         aboutTitle: "À Propos",
         aboutPara1: "Data Analyst passionné par la transformation des données en insights actionnables. Titulaire d'un Bachelor en Économie d'Entreprise (HEG) et certifié Google Data Analytics, je combine une solide formation business avec des compétences techniques avancées en SQL, Python et Business Intelligence.",
-        aboutQuote: "Les données racontent une histoire, mon rôle est de la rendre compréhensible et actionnaire pour tous.",
+        aboutQuote: "Les données racontent une histoire, mon rôle est de la rendre claire et exploitable pour tous.",
         aboutPara2: "Fort de mon expérience dans le secteur public et de mes projets personnels, je maîtrise l'ensemble du cycle d'analyse de données : de la collecte et nettoyage jusqu'à la visualisation et la communication de résultats complexes. Ce portfolio présente mes projets data analytics couvrant différents domaines (santé publique, éducation, gestion de bibliothèque).",
 
         // Projects Section
