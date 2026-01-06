@@ -287,30 +287,26 @@
         </p>
 
         <div class="dashboard-container">
-            <!-- Power BI Dashboard -->
-            <div style="text-align: center; padding: 3rem; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 10px; color: white;">
-                <i class="fas fa-chart-line" style="font-size: 3rem; margin-bottom: 1rem;"></i>
-                <h3 style="margin-bottom: 1rem;">Dashboard Power BI Interactif</h3>
-                <p style="margin-bottom: 2rem; opacity: 0.9;">Cliquez sur le bouton ci-dessous pour visualiser le dashboard complet</p>
-                <a href="https://app.powerbi.com/links/BBeTeIG5Xs?ctid=36eb878d-ccf9-46e7-915d-085299675be5&pbi_source=linkShare"
-                   target="_blank"
-                   class="btn"
-                   style="background: white; color: #667eea; font-size: 1.1rem; padding: 1.2rem 2.5rem;">
-                    <i class="fas fa-external-link-alt"></i> Ouvrir le Dashboard Power BI
-                </a>
-            </div>
+            <!-- Power BI Dashboard Embedded -->
+            <iframe
+                title="Pizza sales dashboard"
+                width="100%"
+                height="600"
+                src="https://app.powerbi.com/view?r=eyJrIjoiNTkwMjE2ZDctZGE1ZS00MGQ5LWE4YzYtOGQyNzViMWNmMzY5IiwidCI6IjM2ZWI4NzhkLWNjZjktNDZlNy05MTVkLTA4NTI5OTY3NWJlNSJ9"
+                frameborder="0"
+                allowFullScreen="true"
+                class="powerbi-embed">
+            </iframe>
         </div>
 
-        <div class="note-box">
-            <h4><i class="fas fa-info-circle"></i> Pour intégrer le dashboard directement sur cette page</h4>
-            <p>Pour afficher le dashboard directement (sans redirection):</p>
-            <ol style="margin-left: 2rem; margin-top: 0.5rem;">
-                <li>Ouvrez votre rapport sur <a href="https://app.powerbi.com" target="_blank">app.powerbi.com</a></li>
-                <li>Cliquez sur <strong>Fichier</strong> → <strong>Intégrer le rapport</strong> → <strong>Publier sur le web</strong></li>
-                <li>Copiez le code iframe fourni</li>
-                <li>Remplacez le contenu de la <code>div.dashboard-container</code> par votre iframe</li>
-            </ol>
-            <p style="margin-top: 1rem;"><strong>Note:</strong> "Publier sur le web" rend le rapport accessible publiquement sans authentification. Consultez le <a href="README.md">README.md</a> pour plus de détails.</p>
+        <div class="note-box" style="background: #d1ecf1; border-left-color: #0c5460;">
+            <h4 style="color: #0c5460;"><i class="fas fa-check-circle"></i> Dashboard intégré avec succès!</h4>
+            <p style="color: #0c5460;">Le dashboard Power BI est maintenant directement accessible ci-dessus. Vous pouvez interagir avec les visualisations en temps réel.</p>
+            <p style="margin-top: 0.5rem; color: #0c5460;">
+                <a href="https://app.powerbi.com/view?r=eyJrIjoiNTkwMjE2ZDctZGE1ZS00MGQ5LWE4YzYtOGQyNzViMWNmMzY5IiwidCI6IjM2ZWI4NzhkLWNjZjktNDZlNy05MTVkLTA4NTI5OTY3NWJlNSJ9" target="_blank" style="color: #0c5460; font-weight: 600;">
+                    <i class="fas fa-external-link-alt"></i> Ouvrir en plein écran
+                </a>
+            </p>
         </div>
     </div>
 </section>
