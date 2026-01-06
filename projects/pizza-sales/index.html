@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analyse des Ventes de Pizzas | Mohamed Ali Jama</title>
+    <meta name="description" content="Projet d'analyse des ventes de pizzas avec SQL Server et Power BI - 11 KPI et dashboard interactif">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../../assets/images/favicon.svg">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        .navbar {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        .navbar a:hover {
+            opacity: 0.8;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            margin-bottom: 2rem;
+        }
+
+        .badges {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .badge {
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 500;
+        }
+
+        .section {
+            padding: 4rem 0;
+            background: white;
+            margin: 2rem 0;
+            border-radius: 10px;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+        }
+
+        .section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #667eea;
+            text-align: center;
+        }
+
+        .section h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin: 2rem 0 1rem 0;
+            color: #764ba2;
+        }
+
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .kpi-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+
+        .kpi-card h4 {
+            color: #667eea;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .kpi-card p {
+            color: #555;
+            font-size: 0.9rem;
+        }
+
+        .dashboard-container {
+            margin: 3rem 0;
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .powerbi-embed {
+            width: 100%;
+            height: 600px;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .tech-stack {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+            justify-content: center;
+        }
+
+        .tech-tag {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin: 0.5rem;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn i {
+            margin-right: 0.5rem;
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 3rem 0;
+        }
+
+        ul {
+            margin-left: 2rem;
+            margin-top: 1rem;
+        }
+
+        ul li {
+            margin: 0.5rem 0;
+            line-height: 1.8;
+        }
+
+        .note-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 5px;
+        }
+
+        .note-box h4 {
+            color: #856404;
+            margin-bottom: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1rem;
+            }
+
+            .section {
+                padding: 2rem 1rem;
+            }
+
+            .powerbi-embed {
+                height: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar">
+    <div class="container">
+        <a href="../../index.html">
+            <i class="fas fa-arrow-left"></i> Retour au Portfolio
+        </a>
+        <a href="https://github.com/malijama/pizza-sales-analysis" target="_blank">
+            <i class="fab fa-github"></i> Voir sur GitHub
+        </a>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero">
+    <div class="container">
+        <h1>🍕 Analyse des Ventes de Pizzas</h1>
+        <p class="subtitle">Analyse complète avec SQL Server et Power BI - 11 KPI Business</p>
+        <div class="badges">
+            <span class="badge"><i class="fas fa-database"></i> SQL Server</span>
+            <span class="badge"><i class="fas fa-chart-line"></i> Power BI</span>
+            <span class="badge"><i class="fas fa-code"></i> T-SQL</span>
+            <span class="badge"><i class="fas fa-brain"></i> Business Intelligence</span>
+        </div>
+    </div>
+</section>
+
+<!-- Dashboard Section -->
+<section class="section">
+    <div class="container">
+        <h2><i class="fas fa-chart-bar"></i> Dashboard Interactif Power BI</h2>
+        <p style="text-align: center; color: #666; margin-bottom: 2rem;">
+            Explorez les données de ventes de pizzas en temps réel avec ce dashboard interactif
+        </p>
+
+        <div class="dashboard-container">
+            <!-- Power BI Dashboard -->
+            <div style="text-align: center; padding: 3rem; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 10px; color: white;">
+                <i class="fas fa-chart-line" style="font-size: 3rem; margin-bottom: 1rem;"></i>
+                <h3 style="margin-bottom: 1rem;">Dashboard Power BI Interactif</h3>
+                <p style="margin-bottom: 2rem; opacity: 0.9;">Cliquez sur le bouton ci-dessous pour visualiser le dashboard complet</p>
+                <a href="https://app.powerbi.com/links/BBeTeIG5Xs?ctid=36eb878d-ccf9-46e7-915d-085299675be5&pbi_source=linkShare"
+                   target="_blank"
+                   class="btn"
+                   style="background: white; color: #667eea; font-size: 1.1rem; padding: 1.2rem 2.5rem;">
+                    <i class="fas fa-external-link-alt"></i> Ouvrir le Dashboard Power BI
+                </a>
+            </div>
+        </div>
+
+        <div class="note-box">
+            <h4><i class="fas fa-info-circle"></i> Pour intégrer le dashboard directement sur cette page</h4>
+            <p>Pour afficher le dashboard directement (sans redirection):</p>
+            <ol style="margin-left: 2rem; margin-top: 0.5rem;">
+                <li>Ouvrez votre rapport sur <a href="https://app.powerbi.com" target="_blank">app.powerbi.com</a></li>
+                <li>Cliquez sur <strong>Fichier</strong> → <strong>Intégrer le rapport</strong> → <strong>Publier sur le web</strong></li>
+                <li>Copiez le code iframe fourni</li>
+                <li>Remplacez le contenu de la <code>div.dashboard-container</code> par votre iframe</li>
+            </ol>
+            <p style="margin-top: 1rem;"><strong>Note:</strong> "Publier sur le web" rend le rapport accessible publiquement sans authentification. Consultez le <a href="README.md">README.md</a> pour plus de détails.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Project Overview -->
+<section class="section">
+    <div class="container">
+        <h2><i class="fas fa-info-circle"></i> Aperçu du Projet</h2>
+
+        <p>Ce projet analyse les données de ventes d'une pizzeria pour identifier les tendances, les performances des produits et générer des indicateurs clés de performance (KPI) pour la prise de décision business.</p>
+
+        <h3>🎯 Objectifs</h3>
+        <ul>
+            <li>Calculer les métriques clés de performance des ventes</li>
+            <li>Identifier les tendances temporelles (quotidiennes et mensuelles)</li>
+            <li>Analyser la répartition des ventes par catégorie et taille</li>
+            <li>Identifier les produits les plus et moins performants</li>
+        </ul>
+
+        <h3>🛠 Technologies Utilisées</h3>
+        <div class="tech-stack">
+            <span class="tech-tag">Microsoft SQL Server 17</span>
+            <span class="tech-tag">T-SQL</span>
+            <span class="tech-tag">Power BI Desktop</span>
+            <span class="tech-tag">Power Query</span>
+            <span class="tech-tag">DAX</span>
+        </div>
+    </div>
+</section>
+
+<!-- KPI Section -->
+<section class="section">
+    <div class="container">
+        <h2><i class="fas fa-chart-pie"></i> Les 11 KPI Analysés</h2>
+
+        <h3>📊 Partie 1: Indicateurs Clés de Performance</h3>
+        <div class="kpi-grid">
+            <div class="kpi-card">
+                <h4>KPI 1: Chiffre d'affaire total</h4>
+                <p>Calcul du revenu total généré par toutes les ventes</p>
+            </div>
+            <div class="kpi-card">
+                <h4>KPI 2: Valeur moyenne par commande</h4>
+                <p>Montant moyen dépensé par transaction</p>
+            </div>
+            <div class="kpi-card">
+                <h4>KPI 3: Pizzas vendues</h4>
+                <p>Volume total de pizzas vendues</p>
+            </div>
+            <div class="kpi-card">
+                <h4>KPI 4: Total des commandes</h4>
+                <p>Nombre de transactions effectuées</p>
+            </div>
+            <div class="kpi-card">
+                <h4>KPI 5: Pizzas par commande</h4>
+                <p>Nombre moyen de pizzas par transaction</p>
+            </div>
+        </div>
+
+        <h3>📈 Partie 2: Analyse des Tendances</h3>
+        <div class="kpi-grid">
+            <div class="kpi-card">
+                <h4>KPI 6: Tendance quotidienne</h4>
+                <p>Répartition des commandes par jour de la semaine</p>
+            </div>
+            <div class="kpi-card">
+                <h4>KPI 7: Tendance mensuelle</h4>
+                <p>Évolution des commandes par mois</p>
+            </div>
+        </div>
+
+        <h3>🎯 Partie 3: Répartition des Ventes</h3>
+        <div class="kpi-grid">
+            <div class="kpi-card">
+                <h4>KPI 8: Ventes par catégorie</h4>
+                <p>Performance par type de pizza avec pourcentages</p>
+            </div>
+            <div class="kpi-card">
+                <h4>KPI 9: Ventes par taille</h4>
+                <p>Analyse des ventes selon la taille (S, M, L, XL, XXL)</p>
+            </div>
+        </div>
+
+        <h3>🏆 Partie 4: Top & Bottom Performers</h3>
+        <div class="kpi-grid">
+            <div class="kpi-card">
+                <h4>KPI 10: Top 5 Pizzas</h4>
+                <p>Les 5 pizzas générant le plus de revenus</p>
+            </div>
+            <div class="kpi-card">
+                <h4>KPI 11: Bottom 5 Pizzas</h4>
+                <p>Les 5 pizzas les moins vendues en quantité</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Database Structure -->
+<section class="section">
+    <div class="container">
+        <h2><i class="fas fa-database"></i> Structure de la Base de Données</h2>
+
+        <p><strong>Base de données:</strong> Pizza_DB<br>
+        <strong>Serveur:</strong> localhost (SQL Server 17.0.1000.7)</p>
+
+        <h3>Table principale: pizza_sales</h3>
+        <ul>
+            <li><code>order_id</code> - Identifiant unique de la commande</li>
+            <li><code>order_date</code> - Date de la commande</li>
+            <li><code>pizza_name</code> - Nom de la pizza</li>
+            <li><code>pizza_category</code> - Catégorie de la pizza</li>
+            <li><code>pizza_size</code> - Taille (S, M, L, XL, XXL)</li>
+            <li><code>quantity</code> - Quantité commandée</li>
+            <li><code>total_price</code> - Prix total</li>
+        </ul>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section">
+    <div class="container">
+        <h2 style="margin-bottom: 2rem;">Explorez le Code Source</h2>
+        <a href="https://github.com/malijama/pizza-sales-analysis" target="_blank" class="btn">
+            <i class="fab fa-github"></i> Voir sur GitHub
+        </a>
+        <a href="../../index.html" class="btn">
+            <i class="fas fa-arrow-left"></i> Retour au Portfolio
+        </a>
+    </div>
+</section>
+
+</body>
+</html>
