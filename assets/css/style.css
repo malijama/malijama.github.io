@@ -840,6 +840,13 @@ nav ul li a:hover::after {
     }
 }
 
+/* Image wrapper for overlay effect */
+.project-image-wrapper {
+    position: relative;
+    overflow: hidden;
+    height: 240px;
+}
+
 .project-card img {
     width: 100%;
     height: 240px;
@@ -864,7 +871,51 @@ nav ul li a:hover::after {
 }
 
 .project-card:hover img {
-    transform: scale(1.08);
+    transform: scale(1.12);
+}
+
+/* Hover overlay on image */
+.project-image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.95) 0%, rgba(118, 75, 162, 0.95) 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 5;
+    padding: 20px;
+}
+
+.project-card:hover .project-image-overlay {
+    opacity: 1;
+}
+
+.project-image-overlay .overlay-badge {
+    background: white;
+    color: #667eea;
+    padding: 0.6rem 1.5rem;
+    border-radius: 25px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.project-image-overlay .overlay-text {
+    color: white;
+    text-align: center;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    max-width: 90%;
 }
 
 .project-card-content {
